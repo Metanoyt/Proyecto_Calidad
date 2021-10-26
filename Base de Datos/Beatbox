@@ -1,0 +1,26 @@
+CREATE TABLE Usuario(
+nombre_usuario VARCHAR(30),
+id_usuario INT CONSTRAINT pk_usuario PRIMARY KEY,
+contrasena_usuario VARCHAR(10)
+);
+
+CREATE TABLE Album(
+nombre_album VARCHAR(30),
+id_album INT  CONSTRAINT pk_album PRIMARY KEY
+);
+
+CREATE TABLE Cancion(
+nombre_cacion VARCHAR(30),
+genero_cancion VARCHAR(30),
+duracion INT,
+nombre_autor VARCHAR(30),
+id_cancion INT CONSTRAINT pk_cancion PRIMARY KEY,
+id_album INT REFERENCES Album(id_album)
+);
+
+CREATE TABLE Lista_reproduccion(
+nombre_lista VARCHAR(30),
+id_lista INT CONSTRAINT pk_lista PRIMARY KEY,
+id_cancion INT REFERENCES Cancion(id_cancion),
+id_usuario INT REFERENCES Usuario(id_usuario)
+);
