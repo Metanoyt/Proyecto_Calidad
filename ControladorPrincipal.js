@@ -1,6 +1,5 @@
-import GeneradorLista from "./GeneradorLista";
-
 const {Client} = require('pg');
+const generador = require('./GeneradorLista.js');
 
 const client = new Client ({
     host: "localhost",
@@ -10,12 +9,10 @@ const client = new Client ({
     database: "postgres"
 })
 
-let generadorLista = new GeneradorLista();
-
 function requestByName(key){
     client.connect();
 
-    client.query(generadorLista.busquedaNombre(key),(err,res)=>{
+    client.query(generador.busquedaNombre(key),(err,res)=>{
     
         if(!err){
             console.log(res.rows);
