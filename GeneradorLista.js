@@ -8,6 +8,5 @@ class GeneradorLista{
         query + '%'+palabraClave+'%';
         return query;
     }
-
-
 }
+export default GeneradorLista;
