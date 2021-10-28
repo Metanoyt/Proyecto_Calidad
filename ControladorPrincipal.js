@@ -25,6 +25,21 @@ function requestByName(key){
     })
 }
 
+
+
+function recomendacion(idLista){
+    client.connect();    
+    client.query(generador.recomendacion(idLista),(err,res)=>{
+    
+        if(!err){
+            console.log(res.rows);
+        } else{
+            console.log(err.message);
+        }
+        client.end;
+    })
+}
+
 requestByName('Fae');
 
 
