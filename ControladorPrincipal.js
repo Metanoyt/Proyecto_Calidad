@@ -1,5 +1,7 @@
 const {Client} = require('pg');
 const generador = require('./GeneradorLista.js');
+const login = require('./Login.js');
+
 
 const client = new Client ({
     host: "localhost",
@@ -25,12 +27,10 @@ function requestByName(key){
     })
 }
 
-
-
-function recomendacion(idLista){
-    client.connect();    
-    client.query(generador.recomendacion(idLista),(err,res)=>{
-    
+function Login(user,pass){
+    client.connect();
+    client.query(login.login(user,pass),(err,res)=>{
+   
         if(!err){
             console.log(res.rows);
         } else{
@@ -40,7 +40,18 @@ function recomendacion(idLista){
     })
 }
 
-requestByName('Fae');
+function recomendacion(idLista){
+    client.connect();    
+    client.query(generador.recomendacion(idLista),(err,res)=>{
+      if(!err){
+            console.log(res.rows);
+        } else{
+            console.log(err.message);
+        }
+        client.end;
+    })
+  }
+
 
 
 
