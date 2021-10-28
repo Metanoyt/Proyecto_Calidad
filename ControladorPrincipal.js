@@ -2,6 +2,7 @@ const {Client} = require('pg');
 const generador = require('./GeneradorLista.js');
 const login = require('./Login.js');
 
+
 const client = new Client ({
     host: "localhost",
     user: "postgres",
@@ -38,4 +39,3 @@ function Login(user,pass){
         client.end;
     })
 }
-
