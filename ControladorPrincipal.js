@@ -52,6 +52,16 @@ function recomendacion(idLista){
     })
   }
 
-
+function agregarCancion(idUsuario, idCancion, idLista){
+    client.connect();
+    client.query(generador.agregarCancion(idUsuario, idCancion, idLista),(err,res)=>{
+        if(!err){
+              console.log(res.rows);
+          } else{
+              console.log(err.message);
+          }
+          client.end;
+      })
+    }
 
 

@@ -14,8 +14,14 @@ function recomendacion(idLista){
     return query;
 }
 
+//Metodo que genera el texto(postgresql) necesario para agregar una cancion a una lista de reproducion
+function agregarCancion(idUsuario, idCancion, IdLista){
+    var query = "INSERT INTO Lista_reproduccion (id_lista, id_usuario ,id_cancion)  values  (" + IdLista+", " + idUsuario + ", " + idCancion +");";
+    return query;
+}
 
 
 
 module.exports.busquedaNombre = busquedaNombre;
 module.exports.recomendacion = recomendacion;
+module.exports.agregarCancion = agregarCancion;
