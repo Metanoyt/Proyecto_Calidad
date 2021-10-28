@@ -6,12 +6,14 @@ const client = new Client ({
     user: "postgres",
     port: 5432,
     password: "4121",
-    database: "postgres"
+    database: "Beatbox"
 })
+
 
 function requestByName(key){
     client.connect();
 
+    
     client.query(generador.busquedaNombre(key),(err,res)=>{
     
         if(!err){
@@ -23,7 +25,7 @@ function requestByName(key){
     })
 }
 
-
+requestByName('Fae');
 
 
 
