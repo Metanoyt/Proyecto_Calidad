@@ -10,7 +10,7 @@ id_album INT  CONSTRAINT pk_album PRIMARY KEY
 );
 
 CREATE TABLE Cancion(
-nombre_cacion VARCHAR(30),
+nombre_cancion VARCHAR(30),
 genero_cancion VARCHAR(30),
 duracion INT,
 nombre_autor VARCHAR(30),
